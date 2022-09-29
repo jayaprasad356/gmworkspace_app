@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TimesheetActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/rltoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:padding="@dimen/_10sdp">
+
+        <ImageButton
+            android:id="@+id/imgBackbtn"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_baseline_keyboard_arrow_left_24"
+            android:backgroundTint="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Time Sheet"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp" />
+
+
+    </RelativeLayout>
+
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/_2sdp">
+
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+
+        >
+
+        <ImageView
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:background="@drawable/timeline"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_50sdp"
+            />
+
+
+
+        <TextView
+            android:id="@+id/idTVSelectedDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/_14sdp"
+            android:text="Date"
+            android:textColor="@color/black"
+            android:background="@drawable/bg_timesheet"
+            android:layout_marginBottom="@dimen/_10sdp"
+            />
+
+
+        <Spinner
+            android:id="@+id/fromspin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/project"
+            android:background="@drawable/bg_timesheet"
+            android:padding="@dimen/_14sdp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:dropDownSelector="@drawable/ic_baseline_keyboard_arrow_down_24"
+            android:layout_marginBottom="@dimen/_10sdp"
+            />
+
+
+
+
+
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Hour"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Describtion"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textAllCaps="false"
+            />
+
+
+
+
+
+    </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

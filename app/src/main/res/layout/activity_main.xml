@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <RelativeLayout
+        android:id="@+id/r1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:src="@drawable/softbg" />
+
+        <ImageView
+            android:id="@+id/imgLogout"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/bg2"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/ic_baseline_logout_24" />
+
+
+
+        <ImageView
+            android:id="@+id/imgStatus"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/unselectpresent"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/smile" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_below="@+id/r1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_10sdp"
+        android:orientation="vertical">
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/bg_card"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:drawableStart="@drawable/ic_baseline_access_time_24"
+                android:drawablePadding="@dimen/_10sdp"
+                android:drawableTint="@color/white"
+                android:text="8 hrs"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:text="Today"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/bg_card1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:drawableStart="@drawable/ic_baseline_access_time_24"
+                android:drawablePadding="@dimen/_10sdp"
+                android:drawableTint="@color/white"
+                android:text="45 hrs"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:text="This Month"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnTimesheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/_20sdp"
+        android:backgroundTint="@color/seconday"
+        app:cardCornerRadius="@dimen/_20sdp"
+        app:cardElevation="@dimen/_8sdp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_margin="@dimen/_10sdp"
+            android:gravity="center"
+            android:drawableStart="@drawable/ic_baseline_add_24"
+            android:text="Time Sheet"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+</RelativeLayout>

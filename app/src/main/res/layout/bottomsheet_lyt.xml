@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/llOralvisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/imgPresent"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/selectpresent"
+                android:padding="@dimen/_15sdp"
+                android:src="@drawable/smile" />
+
+
+            <ImageView
+                android:id="@+id/imgAway"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/unselectaway"
+                android:padding="@dimen/_15sdp"
+                android:src="@drawable/sad" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lslide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/sliderHours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:stepSize="1"
+                android:value="1"
+                android:valueFrom="1"
+                android:valueTo="8" />
+
+            <TextView
+                android:id="@+id/tvHour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:text="1"
+                android:textSize="@dimen/_16sdp" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:paddingHorizontal="@dimen/_30sdp"
+            android:paddingVertical="@dimen/_6sdp"
+            android:backgroundTint="@color/primary"
+            android:textColor="@color/white"
+            android:text="Done"
+            android:textSize="@dimen/_15sdp" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
