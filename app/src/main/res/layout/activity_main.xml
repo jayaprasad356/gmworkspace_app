@@ -133,16 +133,25 @@
             android:layout_marginBottom="@dimen/_10sdp"
             android:text="People"
             android:textSize="@dimen/_14sdp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe"
             android:layout_below="@+id/tvHead"
-            android:layout_centerInParent="true"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="4"
-            tools:listitem="@layout/staff_item" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_centerInParent="true"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="4"
+                tools:listitem="@layout/staff_item" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 
 
     </RelativeLayout>

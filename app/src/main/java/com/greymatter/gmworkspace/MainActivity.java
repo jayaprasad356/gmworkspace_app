@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvTodayHours,tvMonthHours;
     RecyclerView recyclerView;
     StaffAdapter staffAdapter;
+    SwipeRefreshLayout swipe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         activity = MainActivity.this;
         session = new Session(activity);
+
+        swipe = findViewById(R.id.swipe);
 
         recyclerView = findViewById(R.id.recyclerView);
         btnTimesheet = findViewById(R.id.btnTimesheet);
@@ -62,6 +66,13 @@ public class MainActivity extends AppCompatActivity {
         tvMonthHours.setText(session.getData(Constant.MONTH_HOURS) + " hrs");
         GridLayoutManager gridLayoutManager = new GridLayoutManager(activity,4);
         recyclerView.setLayoutManager(gridLayoutManager);
+        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                stafflist();
+
+            }
+        });
         stafflist();
         updateStatus();
 
@@ -183,6 +194,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        swipe.setRefreshing(false);
                         JSONObject object = new JSONObject(response);
                         JSONArray jsonArray = object.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
