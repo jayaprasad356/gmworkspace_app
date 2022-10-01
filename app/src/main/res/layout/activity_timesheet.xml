@@ -38,9 +38,10 @@
 
 
     <ScrollView
+        android:layout_below="@+id/rltoolbar"
+        android:layout_marginTop="@dimen/_20sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:padding="@dimen/_2sdp">
 
 
@@ -58,15 +59,6 @@
 
         >
 
-        <ImageView
-            android:layout_width="@dimen/_120sdp"
-            android:layout_height="@dimen/_120sdp"
-            android:background="@drawable/timeline"
-            android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/_50sdp"
-            />
-
-
 
         <TextView
             android:id="@+id/idTVSelectedDate"
@@ -82,17 +74,22 @@
 
 
         <Spinner
-            android:id="@+id/fromspin"
+            android:id="@+id/spinProject"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:entries="@array/project"
             android:background="@drawable/bg_timesheet"
-            android:padding="@dimen/_14sdp"
+            android:padding="@dimen/_10sdp"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:dropDownSelector="@drawable/ic_baseline_keyboard_arrow_down_24"
             android:layout_marginBottom="@dimen/_10sdp"
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_14sdp"
+            android:text="Working Hours"/>
 
 
 
@@ -102,30 +99,45 @@
 
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginBottom="@dimen/_10sdp"
+        <LinearLayout
+            android:id="@+id/lslide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Hour"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.slider.Slider
+                android:id="@+id/sliderHours"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                />
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:stepSize="1"
+                android:value="1"
+                android:valueFrom="1"
+                android:valueTo="8" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/tvHour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:text="1"
+                android:textSize="@dimen/_16sdp" />
+
+        </LinearLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_marginBottom="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Describtion"
+            android:hint="Description"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
@@ -135,6 +147,7 @@
 
 
         <Button
+            android:id="@+id/btnSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Submit"

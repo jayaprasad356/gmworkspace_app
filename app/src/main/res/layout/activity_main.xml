@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E6F4FB"
     tools:context=".MainActivity">
+
     <RelativeLayout
         android:id="@+id/r1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_200sdp"
-            android:src="@drawable/softbg" />
+
 
         <ImageView
             android:id="@+id/imgLogout"
@@ -25,7 +24,6 @@
             android:background="@drawable/bg2"
             android:padding="@dimen/_10sdp"
             android:src="@drawable/ic_baseline_logout_24" />
-
 
 
         <ImageView
@@ -45,42 +43,39 @@
 
 
     <LinearLayout
-        android:layout_below="@+id/r1"
+        android:id="@+id/l1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/_10sdp"
-        android:orientation="vertical">
-
-
-
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/r1"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_100sdp"
+            android:layout_height="@dimen/_70sdp"
             android:layout_margin="@dimen/_10sdp"
-            android:background="@drawable/bg_card"
+            android:layout_weight="1"
+            android:background="@drawable/gbg1"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="@dimen/_10sdp">
 
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tvTodayHours"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
                 android:drawableStart="@drawable/ic_baseline_access_time_24"
                 android:drawablePadding="@dimen/_10sdp"
                 android:drawableTint="@color/white"
-                android:text="8 hrs"
+                android:text="0 hrs"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_20sdp"
                 android:textStyle="bold" />
 
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
                 android:text="Today"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp" />
@@ -88,41 +83,69 @@
 
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_100sdp"
+            android:layout_height="@dimen/_70sdp"
             android:layout_margin="@dimen/_10sdp"
-            android:background="@drawable/bg_card1"
+            android:layout_weight="1"
+            android:background="@drawable/gbg2"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="@dimen/_10sdp">
 
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tvMonthHours"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
                 android:drawableStart="@drawable/ic_baseline_access_time_24"
                 android:drawablePadding="@dimen/_10sdp"
                 android:drawableTint="@color/white"
-                android:text="45 hrs"
+                android:text="0 hrs"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_20sdp"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
                 android:text="This Month"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp" />
 
         </LinearLayout>
 
-
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/l1"
+        android:background="@drawable/bg3">
+
+        <TextView
+            android:id="@+id/tvHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:text="People"
+            android:textSize="@dimen/_14sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvHead"
+            android:layout_centerInParent="true"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="4"
+            tools:listitem="@layout/staff_item" />
+
+
+    </RelativeLayout>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/btnTimesheet"
@@ -134,18 +157,18 @@
         android:backgroundTint="@color/seconday"
         app:cardCornerRadius="@dimen/_20sdp"
         app:cardElevation="@dimen/_8sdp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
             android:layout_margin="@dimen/_10sdp"
-            android:gravity="center"
             android:drawableStart="@drawable/ic_baseline_add_24"
-            android:text="Time Sheet"/>
+            android:gravity="center"
+            android:text="Time Sheet"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
     </com.google.android.material.card.MaterialCardView>
-
-
 
 
 </RelativeLayout>
