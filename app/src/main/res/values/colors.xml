@@ -11,5 +11,7 @@
 
     <color name="primary">#FF000000</color>
     <color name="seconday">#02C813</color>
+    <color name="green">#02C813</color>
+    <color name="red">#982500</color>
     <color name="primary_light">#E9E6FB</color>
 </resources>

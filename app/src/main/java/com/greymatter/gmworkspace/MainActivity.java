@@ -2,11 +2,20 @@ package com.greymatter.gmworkspace;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.work.ExistingPeriodicWorkPolicy;
+import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkManager;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,6 +42,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     StaffAdapter staffAdapter;
     SwipeRefreshLayout swipe;
+
+    NotificationManager notificationManager;
+    NotificationChannel notificationChannel;
+    Notification.Builder builder;
+    String channelId = "i.apps.notifications";
+    String description = "Test notification";
+    private String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -242,6 +259,7 @@ public class MainActivity extends AppCompatActivity {
                         if (jsonArray.getJSONObject(0).getString(Constant.STATUS).equals("0")){
                             session.setBoolean(Constant.PRESENT,false);
 
+
                         }else {
                             session.setBoolean(Constant.PRESENT,true);
 
@@ -265,12 +283,86 @@ public class MainActivity extends AppCompatActivity {
             imgStatus.setBackgroundResource(R.drawable.unselectpresent);
             imgStatus.setImageResource(R.drawable.smile);
 
+//            Intent intent = new Intent(this,MainActivity.class);
+//            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//            notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//            notificationChannel = new NotificationChannel(channelId, description, NotificationManager.IMPORTANCE_HIGH);
+//            notificationChannel.enableLights(true);
+//            notificationChannel.enableVibration(false);
+//            notificationManager.createNotificationChannel(notificationChannel);
+//            builder = new Notification.Builder(this, channelId)
+//                    .setSmallIcon(R.drawable.selectpresent)
+//                    .setContentTitle("Present")
+//                    .setColor(getResources().getColor(R.color.green))
+//                    .setOngoing(true)
+//                    .setContentIntent(pendingIntent);
+//            notificationManager.notify(1234, builder.build());
+
         }else {
             imgStatus.setBackgroundResource(R.drawable.unselectaway);
             imgStatus.setImageResource(R.drawable.sad);
+//            Intent intent = new Intent(this,MainActivity.class);
+//            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//            notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//            notificationChannel = new NotificationChannel(channelId, description, NotificationManager.IMPORTANCE_HIGH);
+//            notificationChannel.enableLights(true);
+//            notificationChannel.enableVibration(false);
+//            notificationManager.createNotificationChannel(notificationChannel);
+//
+//            builder = new Notification.Builder(this, channelId)
+//                    .setSmallIcon(R.drawable.selectaway)
+//                    .setContentTitle("Away")
+//                    .setColor(getResources().getColor(R.color.red))
+//                    .setOngoing(true)
+//                    .setContentIntent(pendingIntent);
+//            notificationManager.notify(1234, builder.build());
 
 
         }
+        startServiceViaWorker();
+        startService();
+
+    }
+    @Override
+    protected void onDestroy() {
+        Log.d(TAG, "onDestroy called");
+        stopService();
+        super.onDestroy();
+    }
+
+    public void startService() {
+        Log.d(TAG, "startService called"+MyService.isServiceRunning);
+        if (!MyService.isServiceRunning) {
+            Intent serviceIntent = new Intent(this, MyService.class);
+            ContextCompat.startForegroundService(this, serviceIntent);
+        }
+    }
+
+    public void stopService() {
+        Log.d(TAG, "stopService called");
+        if (MyService.isServiceRunning) {
+            Intent serviceIntent = new Intent(this, MyService.class);
+            stopService(serviceIntent);
+        }
+    }
+
+    public void startServiceViaWorker() {
+        Log.d(TAG, "startServiceViaWorker called");
+        String UNIQUE_WORK_NAME = "StartMyServiceViaWorker";
+        WorkManager workManager = WorkManager.getInstance(this);
+
+        // As per Documentation: The minimum repeat interval that can be defined is 15 minutes
+        // (same as the JobScheduler API), but in practice 15 doesn't work. Using 16 here
+        PeriodicWorkRequest request =
+                new PeriodicWorkRequest.Builder(
+                        MyWorker.class,
+                        16,
+                        TimeUnit.MINUTES)
+                        .build();
+
+        // to schedule a unique work, no matter how many times app is opened i.e. startServiceViaWorker gets called
+        // do check for AutoStart permission
+        workManager.enqueueUniquePeriodicWork(UNIQUE_WORK_NAME, ExistingPeriodicWorkPolicy.KEEP, request);
 
     }
 

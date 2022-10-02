@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">GMWorkspace</string>
+    <string name="notify_channel_id" translatable="false">MyDefaultChannelID</string>
+
+    <string name="notify_channel_name" translatable="false">MyDefaultChannelName</string>
+
+    <string name="notify_channel_description" translatable="false">MyDefaultChannelDescription</string>
 
 
 </resources>
