@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
     private static  ArrayList<String> hours = new ArrayList<>();
     ValueLineSeries series;
     ValueLineChart mCubicValueLineChart;
+    TextView tvName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         session = new Session(activity);
 
         swipe = findViewById(R.id.swipe);
+        tvName = findViewById(R.id.tvName);
 
         recyclerView = findViewById(R.id.recyclerView);
         btnTimesheet = findViewById(R.id.btnTimesheet);
@@ -88,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         tvMonthHours = findViewById(R.id.tvMonthHours);
         tvTodayHours.setText(session.getData(Constant.TODAY_HOURS) +" hrs");
         tvMonthHours.setText(session.getData(Constant.MONTH_HOURS) + " hrs");
+        tvName.setText(session.getData(Constant.NAME));
         GridLayoutManager gridLayoutManager = new GridLayoutManager(activity,6);
         recyclerView.setLayoutManager(gridLayoutManager);
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

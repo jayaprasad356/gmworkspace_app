@@ -71,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                         JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
                         session.setBoolean("is_logged_in", true);
                         session.setData(Constant.ID,jsonArray.getJSONObject(0).getString(Constant.ID));
+                        session.setData(Constant.NAME,jsonArray.getJSONObject(0).getString(Constant.NAME));
                         startActivity(new Intent(activity,
                                 MainActivity.class));
                         finish();
