@@ -24,7 +24,13 @@
             android:background="@drawable/bg2"
             android:padding="@dimen/_10sdp"
             android:src="@drawable/ic_baseline_logout_24" />
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prasad"
+            android:layout_centerInParent="true"
+            android:textColor="@color/teal_700"
+            android:textSize="@dimen/_16sdp"/>
 
         <ImageView
             android:id="@+id/imgStatus"
@@ -123,6 +129,16 @@
         android:layout_below="@+id/l1"
         android:background="@drawable/bg3">
 
+        <org.eazegraph.lib.charts.ValueLineChart
+            android:id="@+id/cubiclinechart"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:egCurveSmoothness="0.4"
+            app:egLegendHeight="40dp"
+            app:egUseCubic="true"
+            app:egUseOverlapFill="true" />
+
+
         <TextView
             android:id="@+id/tvHead"
             android:layout_width="wrap_content"
@@ -131,22 +147,23 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_below="@+id/cubiclinechart"
             android:text="People"
             android:textSize="@dimen/_14sdp" />
+
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipe"
-            android:layout_below="@+id/tvHead"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvHead">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:layout_centerInParent="true"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="4"
+                app:spanCount="6"
                 tools:listitem="@layout/staff_item" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
