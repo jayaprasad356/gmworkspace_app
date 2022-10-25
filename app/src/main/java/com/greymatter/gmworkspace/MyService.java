@@ -44,8 +44,16 @@ public class MyService extends Service {
         Log.d(TAG, "onStartCommand called");
         session = new Session(this);
         Intent notificationIntent = new Intent(this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,
-                0, notificationIntent, 0);
+        PendingIntent pendingIntent;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            pendingIntent = PendingIntent.getActivity(this,
+                    0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+        }else {
+            pendingIntent = PendingIntent.getActivity(this,
+                    0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        }
         Notification notification;
         if (session.getBoolean(Constant.PRESENT)){
             notification = new NotificationCompat.Builder(this, CHANNEL_ID)

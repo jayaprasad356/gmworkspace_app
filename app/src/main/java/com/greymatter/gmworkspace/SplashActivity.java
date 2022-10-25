@@ -10,7 +10,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.greymatter.gmworkspace.helper.ApiConfig;
@@ -46,6 +49,7 @@ public class SplashActivity extends AppCompatActivity {
         animation.setDuration(1000);
         animation.setFillAfter(true);
         imgLogo.setAnimation(animation);;
+
     }
     private void GotoActivity()
     {
