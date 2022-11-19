@@ -16,6 +16,7 @@ import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.google.android.datatransport.backend.cct.BuildConfig;
 import com.greymatter.gmworkspace.helper.ApiConfig;
 import com.greymatter.gmworkspace.helper.Constant;
 import com.greymatter.gmworkspace.helper.Session;
@@ -57,7 +58,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (session.getBoolean("is_logged_in")){
-                    Intent intent=new Intent(activity, MainActivity.class);
+                    Intent intent=new Intent(activity,MainActivity.class);
                     startActivity(intent);
                     finish();
 
