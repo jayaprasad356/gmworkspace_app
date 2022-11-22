@@ -37,13 +37,24 @@ public class RecentTimeSheetAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
-        final RecentTimeSheetModel model = recentTimeSheetModelArrayList.get(position);
-        final RecyclerView.ViewHolder holder = (ExploreItemHolder) holderParent;
-        ((ExploreItemHolder) holderParent).ProjectName.setText(model.getProjectName());
-        ((ExploreItemHolder) holderParent).ProjectDes.setText(model.getProjectDescription());
-        ((ExploreItemHolder) holderParent).ProjectStatus.setText(model.getVerifiedStatus());
-        ((ExploreItemHolder) holderParent).ProjectWorkedHours.setText(model.getProjectWorkedHours());
-        ((ExploreItemHolder) holderParent).ProjectDate.setText(model.getProjectDate());
+
+
+        final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
+        final  RecentTimeSheetModel recentTimeSheetModel = recentTimeSheetModelArrayList.get(position);
+
+        holder.ProjectName.setText(recentTimeSheetModel.getName());
+        holder.ProjectDes.setText(recentTimeSheetModel.getDescription());
+        holder.ProjectStatus.setText(recentTimeSheetModel.getStatus());
+        holder.ProjectWorkedHours.setText(recentTimeSheetModel.getHours());
+        holder.ProjectDate.setText(recentTimeSheetModel.getDate());
+
+        if (recentTimeSheetModel.getStatus().equals("1") ){
+
+            holder.ProjectStatus.setText("Verified");
+        }
+        else {
+            holder.ProjectStatus.setText("Pending");
+        }
 
     }
 

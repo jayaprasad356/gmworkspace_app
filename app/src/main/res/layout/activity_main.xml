@@ -35,6 +35,7 @@
             android:textSize="@dimen/_16sdp" />
 
         <ImageView
+            android:visibility="gone"
             android:id="@+id/imgStatus"
             android:layout_width="@dimen/_40sdp"
             android:layout_height="@dimen/_40sdp"
@@ -46,6 +47,18 @@
             android:background="@drawable/unselectpresent"
             android:padding="@dimen/_10sdp"
             android:src="@drawable/smile" />
+        <ImageView
+            android:id="@+id/imgTimeView"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/unselectpresent"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/ic_baseline_access_time_filled_24" />
 
     </RelativeLayout>
 
@@ -84,7 +97,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Today"
+                android:text="This week"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp" />
 

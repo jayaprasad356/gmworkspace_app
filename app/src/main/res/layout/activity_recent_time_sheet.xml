@@ -4,7 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecentTimeSheetActivity">
+    tools:context=".RecentTimeSheetActivity"
+    android:orientation="vertical"
+    >
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:background="@color/green"
+        >
+
+
+        <ImageView
+            android:id="@+id/imgBackbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_baseline_arrow_back_24"
+            android:backgroundTint="@color/white"
+
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recent Time Sheet"
+            android:textColor="@color/white"
+            android:gravity="center"
+            />
+    </RelativeLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView

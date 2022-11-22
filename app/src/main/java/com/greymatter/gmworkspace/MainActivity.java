@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     MaterialCardView btnTimesheet;
     Activity activity;
-    ImageView imgStatus,imgLogout;
+    ImageView imgStatus,imgLogout,imgTimeView;
     Session session;
     boolean present = true;
     TextView tvTodayHours,tvMonthHours;
@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
         swipe = findViewById(R.id.swipe);
         tvName = findViewById(R.id.tvName);
+        imgTimeView = findViewById(R.id.imgTimeView);
 
         recyclerView = findViewById(R.id.recyclerView);
         btnTimesheet = findViewById(R.id.btnTimesheet);
@@ -107,6 +108,14 @@ public class MainActivity extends AppCompatActivity {
         //printDatesInMonth(2022,05);
         timesheetslist();
 
+        imgTimeView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,RecentTimeSheetActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
 
 
