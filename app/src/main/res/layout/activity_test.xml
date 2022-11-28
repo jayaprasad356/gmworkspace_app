@@ -3,18 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     tools:context=".TestActivity">
-    <org.eazegraph.lib.charts.ValueLineChart
-        android:id="@+id/cubiclinechart"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:egUseCubic="true"
-        app:egUseOverlapFill="true"
-        app:egCurveSmoothness="0.4"
-        app:egLegendHeight="40dp"
-        />
+
 
 
 </RelativeLayout>

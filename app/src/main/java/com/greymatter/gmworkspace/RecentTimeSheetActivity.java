@@ -79,7 +79,6 @@ public class RecentTimeSheetActivity extends AppCompatActivity {
         params.put(Constant.STAFF_ID,session.getData(Constant.ID));
 
         ApiConfig.RequestToVolley((result, response) -> {
-            Log.d("Res",response);
             if (result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);

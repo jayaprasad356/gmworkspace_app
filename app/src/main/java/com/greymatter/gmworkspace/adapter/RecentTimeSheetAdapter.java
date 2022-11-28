@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -49,11 +50,14 @@ public class RecentTimeSheetAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         holder.ProjectDate.setText(recentTimeSheetModel.getDate());
 
         if (recentTimeSheetModel.getStatus().equals("1") ){
-
             holder.ProjectStatus.setText("Verified");
+            holder.ProjectStatus.setTextColor(ContextCompat.getColor(activity, R.color.green));
+
         }
         else {
-            holder.ProjectStatus.setText("Pending");
+            holder.ProjectStatus.setText("Not Verified");
+            holder.ProjectStatus.setTextColor(ContextCompat.getColor(activity, R.color.red));
+
         }
 
     }

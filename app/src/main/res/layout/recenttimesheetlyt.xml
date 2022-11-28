@@ -26,7 +26,7 @@
                 android:id="@+id/tvProjectName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Project name"
+                android:text=""
                 android:textColor="@color/black"
                 android:layout_alignParentStart="true"
                 android:fontFamily="@font/pop_medium"
@@ -40,7 +40,7 @@
                 android:fontFamily="@font/pop_medium"
                 android:text="Verified"
                 android:textColor="@color/green"
-                android:textSize="16sp" />
+                android:textSize="@dimen/_10sdp" />
         </RelativeLayout>
 
         <TextView
@@ -52,7 +52,7 @@
             android:fontFamily="@font/pop_regular"
             android:layout_marginHorizontal="@dimen/_20sdp"
             android:layout_marginTop="10dp"
-            android:textSize="15sp"/>
+            android:textSize="@dimen/_10sdp"/>
 
         <LinearLayout
             android:layout_width="match_parent"

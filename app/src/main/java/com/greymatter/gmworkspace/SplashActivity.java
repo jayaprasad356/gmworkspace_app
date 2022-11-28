@@ -6,6 +6,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -87,7 +89,16 @@ public class SplashActivity extends AppCompatActivity {
                         link = jsonArray.getJSONObject(0).getString(Constant.LINK);
                         description = jsonArray.getJSONObject(0).getString(Constant.DESCRIPTION);
                         String latestversion = jsonArray.getJSONObject(0).getString(Constant.VERSION);
-                        String currentversion = String.valueOf(BuildConfig.VERSION_CODE);
+                        String currentversion = "";
+
+
+                        try {
+                            PackageInfo pInfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
+                            currentversion = pInfo.versionCode + "";
+                        } catch (PackageManager.NameNotFoundException e) {
+                            e.printStackTrace();
+                        }
+
                         if (currentversion.equals(latestversion)){
                             GotoActivity();
 

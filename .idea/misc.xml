@@ -13,15 +13,19 @@
         <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/drawable-v24/unselectaway.xml" value="0.1375" />
         <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/drawable-v24/unselectpresent.xml" value="0.1375" />
         <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/drawable/bg1.xml" value="0.1375" />
+        <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/drawable/bg_timesheet.xml" value="0.184" />
         <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/drawable/circlebg.xml" value="0.163" />
         <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/drawable/gbg1.xml" value="0.163" />
         <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/drawable/gbg2.xml" value="0.163" />
+        <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/drawable/ic_baseline_keyboard_arrow_down_24.xml" value="0.184" />
         <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/drawable/inactivecircle.xml" value="0.1335" />
         <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/layout/activity_login.xml" value="0.3333333333333333" />
         <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/layout/activity_main.xml" value="0.4466666666666667" />
         <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/layout/activity_splash.xml" value="0.22" />
+        <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/layout/activity_test.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/layout/activity_timesheet.xml" value="0.22" />
         <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/layout/bottomsheet_lyt.xml" value="0.3333333333333333" />
+        <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/layout/recenttimesheetlyt.xml" value="0.16018518518518518" />
         <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/layout/spinner_item.xml" value="0.17135416666666667" />
         <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/layout/staff_item.xml" value="0.5" />
         <entry key="..\:/Studio Projects/GMWorkspace/app/src/main/res/layout/staff_lyt.xml" value="0.17447916666666666" />
